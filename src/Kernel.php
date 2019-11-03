@@ -10,7 +10,7 @@ class Kernel
         $requestUriParts = explode('/', $requestUri);
 
         /* Instanciation du controleur */
-        $controllerNameParts = explode('-', $requestUriParts[0]);
+        $controllerNameParts = explode('-', $requestUriParts[0] ?: 'home');
         $controllerName = "App\\Controller\\".implode('', array_map(function($part) {
             return ucfirst($part);
         }, $controllerNameParts));

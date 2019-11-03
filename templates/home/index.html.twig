@@ -1,5 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="font-weight-light">Quizz generator</h1>
+                    <p class="lead">
+                        Générez une partie en sélectionnant des jeux de société dans une liste,
+                        vous pourrez ensuite jouer à tous ces jeux en même temps !
+                    </p>
+                    <p>
+                        <a href="/game/new" class="btn btn-primary">Nouvelle partie</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
 {% endblock %}
