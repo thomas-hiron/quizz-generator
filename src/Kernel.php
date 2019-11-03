@@ -4,7 +4,7 @@ namespace App;
 
 class Kernel
 {
-    public function handleRequest()
+    public function handleRequest(): void
     {
         $requestUri = ltrim($_SERVER['REQUEST_URI'], '/');
         $requestUriParts = explode('/', $requestUri);

@@ -7,7 +7,7 @@ use Twig\Loader\FilesystemLoader;
 
 abstract class AbstractController
 {
-    protected function render(string $template, array $params = [])
+    protected function render(string $template, array $params = []): void
     {
         $loader = new FilesystemLoader(__DIR__.'/../../templates');
         $twig = new Environment($loader);

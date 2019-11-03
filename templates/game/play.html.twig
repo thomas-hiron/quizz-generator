@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th colspan="2"></th>
+                            <th width="150">Laura</th>
+                            <th width="150">Thomas</th>
+                        </tr>
+
+                        {% for game in games %}
+                            {% set questions = game.questions %}
+
+                            {% for question in questions %}
+                                <tr valign="middle">
+                                    {% if loop.first %}
+                                        <td rowspan="{{ questions|length }}">
+                                            {{ game.name }}
+                                        </td>
+                                    {% endif %}
+
+                                    <td>
+                                        {{ question.label }}
+                                    </td>
+
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="1-{{ question.id }}">
+                                            <label class="custom-control-label" for="1-{{ question.id }}"></label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="2-{{ question.id }}">
+                                            <label class="custom-control-label" for="2-{{ question.id }}"></label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <header class="masthead">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 text-center">
+                    <h1 class="font-weight-light mb-4">Choisir les jeux</h1>
+
+                    <form class="needs-validation" novalidate="" action="/game/new" method="post">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="ttmc" name="ttmc" checked>
+                            <label class="custom-control-label" for="ttmc">Tu te mets combien ?</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="cc" name="cc" checked>
+                            <label class="custom-control-label" for="cc">Combat de coqs</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="sv" name="sv" checked>
+                            <label class="custom-control-label" for="sv">Science & Vie</label>
+                        </div>
+
+                        <hr class="mb-4">
+                        <button class="btn btn-outline-primary btn-lg w-25" type="submit" name="submit">Démarrer la partie</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
