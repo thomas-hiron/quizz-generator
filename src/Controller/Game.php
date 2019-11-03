@@ -31,6 +31,7 @@ class Game extends AbstractController
 
         $this->render('game/play.html.twig', [
             'games' => $gameManager->getGames(),
+            'players' => $gameManager->getPlayers(),
         ]);
     }
 }

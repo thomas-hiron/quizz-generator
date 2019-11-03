@@ -8,8 +8,9 @@
                     <table class="table table-bordered">
                         <tr>
                             <th colspan="2"></th>
-                            <th width="150">Laura</th>
-                            <th width="150">Thomas</th>
+                            {% for player in players %}
+                                <th width="150">{{ player }}</th>
+                            {% endfor %}
                         </tr>
 
                         {% for game in games %}
@@ -27,18 +28,14 @@
                                         {{ question.label }}
                                     </td>
 
-                                    <td>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="1-{{ question.id }}">
-                                            <label class="custom-control-label" for="1-{{ question.id }}"></label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="custom-control custom-checkbox">
-                                            <input type="checkbox" class="custom-control-input" id="2-{{ question.id }}">
-                                            <label class="custom-control-label" for="2-{{ question.id }}"></label>
-                                        </div>
-                                    </td>
+                                    {% for player in players %}
+                                        <td>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="{{ loop.index }}-{{ question.id }}">
+                                                <label class="custom-control-label" for="{{ loop.index }}-{{ question.id }}"></label>
+                                            </div>
+                                        </td>
+                                    {% endfor %}
                                 </tr>
                             {% endfor %}
                         {% endfor %}

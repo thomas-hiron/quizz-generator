@@ -14,7 +14,7 @@ class CombatDeCoqs extends AbstractGame
     private const GASTRONOMIE = 'Gastronomie';
 
     private const HISTOIRE = 'Histoire';
-    private const GEO = 'Géographique';
+    private const GEO = 'Géographie';
     private const LANGUE = 'Langue française';
     private const LITTERATURE = 'Littérature';
     private const ECONOMIE = 'Économie';

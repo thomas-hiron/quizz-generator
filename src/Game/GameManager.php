@@ -10,12 +10,20 @@ class GameManager
 
     /** @var GameInterface[] */
     private $games = [];
+    private $players = [];
 
     public function generateGame(array $formData): void
     {
         $this->ttmc = isset($formData['ttmc']);
         $this->combatDeCoqs = isset($formData['cc']);
         $this->scienceEtVie = isset($formData['sv']);
+
+        $this->players = array_filter([
+            $formData['player_one'] ?? null,
+            $formData['player_two'] ?? null,
+            $formData['player_three'] ?? null,
+            $formData['player_four'] ?? null,
+        ]);
 
         if ($this->ttmc) {
             $this->games[] = (new Ttmc())->initGame();
@@ -36,5 +44,10 @@ class GameManager
     public function getGames(): array
     {
         return $this->games;
+    }
+
+    public function getPlayers(): array
+    {
+        return $this->players;
     }
 }
