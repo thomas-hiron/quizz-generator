@@ -6,8 +6,16 @@ use App\Game\Question\QuestionInterface;
 
 abstract class AbstractGame
 {
+    protected $nbQuestions;
+
     /** @var QuestionInterface[] */
     protected $questions = [];
+
+    public function __construct(int $nbQuestions)
+    {
+        $this->nbQuestions = $nbQuestions;
+    }
+
 
     /**
      * @return QuestionInterface[]

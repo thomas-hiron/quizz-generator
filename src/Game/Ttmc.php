@@ -22,7 +22,11 @@ class Ttmc extends AbstractGame
 
     public function initGame(): AbstractGame
     {
-        foreach (self::AVAILABLE_QUESTIONS as $question) {
+        $availableQuestions = self::AVAILABLE_QUESTIONS;
+        shuffle($availableQuestions);
+        $availableQuestions = array_splice($availableQuestions, 0, $this->nbQuestions);
+
+        foreach ($availableQuestions as $question) {
             $this->questions[] = new TtmcQuestion(
                 $question,
                 $this->getLevel()

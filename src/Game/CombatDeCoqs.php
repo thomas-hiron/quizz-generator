@@ -41,7 +41,7 @@ class CombatDeCoqs extends AbstractGame
         $questions = self::AVAILABLE_QUESTIONS;
         shuffle($questions);
 
-        foreach (array_splice($questions, 0, 5) as $question) {
+        foreach (array_splice($questions, 0, $this->nbQuestions) as $question) {
             $this->questions[] = new BasicQuestion($question);
         }
 

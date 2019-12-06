@@ -25,16 +25,18 @@ class GameManager
             $formData['player_four'] ?? null,
         ]);
 
+        $nbQuestions = $formData['nb_questions'];
+
         if ($this->ttmc) {
-            $this->games[] = (new Ttmc())->initGame();
+            $this->games[] = (new Ttmc($nbQuestions))->initGame();
         }
 
         if ($this->combatDeCoqs) {
-            $this->games[] = (new CombatDeCoqs())->initGame();
+            $this->games[] = (new CombatDeCoqs($nbQuestions))->initGame();
         }
 
         if ($this->scienceEtVie) {
-            $this->games[] = (new ScienceEtVie())->initGame();
+            $this->games[] = (new ScienceEtVie($nbQuestions))->initGame();
         }
     }
 
