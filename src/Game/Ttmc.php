@@ -12,17 +12,20 @@ class Ttmc extends AbstractGame
     private const SCOLAIRE = 'Scolaire';
     private const HESITE_PAS_A_GAGNER = 'Hésite pas à gagner';
 
-    private const AVAILABLE_QUESTIONS = [
-        self::IMPROBABLE,
-        self::MATURE,
-        self::PLAISIR,
-        self::SCOLAIRE,
-        self::HESITE_PAS_A_GAGNER,
-    ];
+    public static function getAvailableQuestions(): array
+    {
+        return [
+            self::IMPROBABLE,
+            self::MATURE,
+            self::PLAISIR,
+            self::SCOLAIRE,
+            self::HESITE_PAS_A_GAGNER,
+        ];
+    }
 
     public function initGame(): AbstractGame
     {
-        $availableQuestions = self::AVAILABLE_QUESTIONS;
+        $availableQuestions = self::getAvailableQuestions();
         shuffle($availableQuestions);
         $availableQuestions = array_splice($availableQuestions, 0, $this->nbQuestions);
 

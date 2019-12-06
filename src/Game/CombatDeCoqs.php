@@ -20,32 +20,23 @@ class CombatDeCoqs extends AbstractGame
     private const ECONOMIE = 'Économie';
     private const ART = 'Art';
 
-    private const AVAILABLE_QUESTIONS = [
-        self::MUSIQUE,
-        self::CINEMA,
-        self::SPORT,
-        self::MEDIA,
-        self::MODE,
-        self::GASTRONOMIE,
-
-        self::HISTOIRE,
-        self::GEO,
-        self::LANGUE,
-        self::LITTERATURE,
-        self::ECONOMIE,
-        self::ART,
-    ];
-
-    public function initGame(): AbstractGame
+    public static function getAvailableQuestions(): array
     {
-        $questions = self::AVAILABLE_QUESTIONS;
-        shuffle($questions);
+        return [
+            self::MUSIQUE,
+            self::CINEMA,
+            self::SPORT,
+            self::MEDIA,
+            self::MODE,
+            self::GASTRONOMIE,
 
-        foreach (array_splice($questions, 0, $this->nbQuestions) as $question) {
-            $this->questions[] = new BasicQuestion($question);
-        }
-
-        return $this;
+            self::HISTOIRE,
+            self::GEO,
+            self::LANGUE,
+            self::LITTERATURE,
+            self::ECONOMIE,
+            self::ART,
+        ];
     }
 
     public function getName(): string

@@ -5,6 +5,7 @@ namespace App\Game;
 class GameManager
 {
     private $ttmc = false;
+    private $trivialPursuit = false;
     private $combatDeCoqs = false;
     private $scienceEtVie = false;
 
@@ -15,6 +16,7 @@ class GameManager
     public function generateGame(array $formData): void
     {
         $this->ttmc = isset($formData['ttmc']);
+        $this->trivialPursuit = isset($formData['tp']);
         $this->combatDeCoqs = isset($formData['cc']);
         $this->scienceEtVie = isset($formData['sv']);
 
@@ -29,6 +31,10 @@ class GameManager
 
         if ($this->ttmc) {
             $this->games[] = (new Ttmc($nbQuestions))->initGame();
+        }
+
+        if ($this->trivialPursuit) {
+            $this->games[] = (new TrivialPursuit($nbQuestions))->initGame();
         }
 
         if ($this->combatDeCoqs) {
