@@ -8,6 +8,7 @@ class GameManager
     private $trivialPursuit = false;
     private $combatDeCoqs = false;
     private $scienceEtVie = false;
+    private $franceEnQuestions = false;
 
     /** @var GameInterface[] */
     private $games = [];
@@ -19,12 +20,15 @@ class GameManager
         $this->trivialPursuit = isset($formData['tp']);
         $this->combatDeCoqs = isset($formData['cc']);
         $this->scienceEtVie = isset($formData['sv']);
+        $this->franceEnQuestions = isset($formData['fq']);
 
         $this->players = array_filter([
             $formData['player_one'] ?? null,
             $formData['player_two'] ?? null,
             $formData['player_three'] ?? null,
             $formData['player_four'] ?? null,
+            $formData['player_five'] ?? null,
+            $formData['player_six'] ?? null,
         ]);
 
         $nbQuestions = $formData['nb_questions'];
@@ -43,6 +47,10 @@ class GameManager
 
         if ($this->scienceEtVie) {
             $this->games[] = (new ScienceEtVie($nbQuestions))->initGame();
+        }
+
+        if ($this->franceEnQuestions) {
+            $this->games[] = (new FranceEnQuestions($nbQuestions))->initGame();
         }
     }
 

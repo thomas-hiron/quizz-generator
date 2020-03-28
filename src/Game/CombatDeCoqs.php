@@ -2,8 +2,6 @@
 
 namespace App\Game;
 
-use App\Game\Question\BasicQuestion;
-
 class CombatDeCoqs extends AbstractGame
 {
     private const MUSIQUE = 'Musique';

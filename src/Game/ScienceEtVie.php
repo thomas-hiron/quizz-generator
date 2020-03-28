@@ -2,8 +2,6 @@
 
 namespace App\Game;
 
-use App\Game\Question\BasicQuestion;
-
 class ScienceEtVie extends AbstractGame
 {
     private const CIEL_ESPACE = 'Ciel & espace';
