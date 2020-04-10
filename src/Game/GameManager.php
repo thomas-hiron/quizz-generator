@@ -9,6 +9,8 @@ class GameManager
     private $combatDeCoqs = false;
     private $scienceEtVie = false;
     private $franceEnQuestions = false;
+    private $aperoEnigmes = false;
+    private $soireeEnigmes = false;
 
     /** @var GameInterface[] */
     private $games = [];
@@ -21,6 +23,8 @@ class GameManager
         $this->combatDeCoqs = isset($formData['cc']);
         $this->scienceEtVie = isset($formData['sv']);
         $this->franceEnQuestions = isset($formData['fq']);
+        $this->aperoEnigmes = isset($formData['ae']);
+        $this->soireeEnigmes = isset($formData['se']);
 
         $this->players = array_filter([
             $formData['player_one'] ?? null,
@@ -51,6 +55,14 @@ class GameManager
 
         if ($this->franceEnQuestions) {
             $this->games[] = (new FranceEnQuestions($nbQuestions))->initGame();
+        }
+
+        if ($this->aperoEnigmes) {
+            $this->games[] = (new AperoEnigmes($nbQuestions))->initGame();
+        }
+
+        if ($this->soireeEnigmes) {
+            $this->games[] = (new SoireeEnigmes($nbQuestions))->initGame();
         }
     }
 
